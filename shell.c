@@ -1,23 +1,53 @@
 #include "shell.h"
 
-int main()
+/**
+ * main - Entry point
+ *
+ * Return: always 0 (Success)
+ */
+
+extern char **environ;
+
+int main(void)
 {
 	char **tokens = NULL;
 	char *buffer = NULL;
 	size_t bufsize;
+	int i;
 
-	while (1)	
+	while (1)
 	{
 		printf("#cisfun$ ");
-		if (getline (&buffer, &bufsize, stdin) == EOF)
+		if (getline(&buffer, &bufsize, stdin) == EOF)
 		{
 			free(buffer);
 			exit(0);
 		}
-		tokens = _parse(buffer);	
-		if(fork() == 0)
+		if (strncmp(buffer, "\n", 1) == 0)
 		{
-			if (execve(tokens[0], tokens, NULL) == -1)
+			/**buffer = "\0";
+			free(buffer);*/
+			continue;
+		}
+		tokens = _parse(buffer, "\n ");
+
+		char **new_envp = copy_envp(environ);
+		char *_path = get_path(new_envp, "PATH");
+		char **path_string = _parse(_path, "=");
+		char **dir = _parse(path_string[1], ":");
+		for (i = 0; dir[i] != NULL; i++)
+		{
+			str_concat(dir[i], "/");
+			str_concat(dir[i], tokens[0]);
+			if (access(dir[i], F_OK) == 0)
+			{
+				exit(EXIT_SUCCESS);
+			}
+		}	
+			
+		if (fork() == 0)
+		{
+			if (execve(dir[i], tokens, NULL) == -1)
 			{
 				perror("./shell");
 				exit(0);
@@ -30,6 +60,6 @@ int main()
 		}
 		free(buffer);
 		buffer = NULL;
-	}	
+	}
 	return (0);
 }

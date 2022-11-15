@@ -1,24 +1,30 @@
 #include "shell.h"
 
-char **_parse(char *str)
+/**
+ * _parse- splittes line of strings
+ * @str: string to be parsed
+ * Return: array of splited strings
+ */
+
+char **_parse(char *str, char *delim)
 {
 	int i = 0, size = 1024;
 	char **tokens = NULL;
 	char *token;
 
-	tokens = malloc(sizeof(char*) * size);
+	tokens = malloc(sizeof(char *) * size);
 	if (tokens == NULL)
 		exit(0);
-	token = strtok(str, "\n ");
+	token = strtok(str, delim);
 	while (token != NULL)
 	{
 		tokens[i] = token;
-		token = strtok(NULL, "\n ");
+		token = strtok(NULL, delim);
 		i++;
 		if (i >= size)
 		{
-			size =+ size;
-			tokens = realloc(tokens, size * sizeof(char*));
+			size = size + size;
+			tokens = realloc(tokens, size * sizeof(char *));
 			if (tokens == NULL)
 				exit(0);
 		}

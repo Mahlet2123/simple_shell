@@ -10,6 +10,15 @@
 #include <string.h>
 
 char * _read_line(void);
-char **_parse(char *str);
+char **_parse(char *str, char *delim);
+
+/**path handlers*/
+char **copy_envp(char **envp);
+char *get_path(char **new_envp, char *path);
+
+/**string modifiers*/
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+char *str_concat(char *s1, char *s2);
 
 #endif
