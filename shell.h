@@ -9,11 +9,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+void prompt(void);
 char *_read_line(void);
 char **_parse(char *str, char *delim);
 
 /**path handlers*/
-char **copy_envp(char **envp);
+char **copy_envp(void);
 char *get_path(char **new_envp, char *path);
 char *check_cmd(char **dir, char *tokens);
 

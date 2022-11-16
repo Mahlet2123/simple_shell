@@ -5,23 +5,22 @@
  * @envp: a double pointer to the enviroment list
  * Return:pointer to the new string array
  */
-
-char **copy_envp(char **envp)
+extern char** environ;
+char **copy_envp(void)
 {
 	int i, env_len = 0;
 	char **new_envp = NULL;
-	char **environ;
 
 	while (environ[env_len] != NULL)
 	{
 		env_len++;
 	}
-	new_envp = malloc(sizeof(char *) * env_len);
+	new_envp = malloc(sizeof(char **) * env_len);
 	if (new_envp == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; envp[i] != NULL; i++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		new_envp[i] = malloc(sizeof(char) * (_strlen(environ[i]) + 1));
 		if (new_envp[i] == NULL)
