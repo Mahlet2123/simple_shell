@@ -13,7 +13,7 @@ int main(void)
 	char **tokens = NULL;
 	char *buffer = NULL;
 	size_t bufsize;
-	int i;
+	int i = 0;
 
 	while (1)
 	{
@@ -31,7 +31,7 @@ int main(void)
 		}
 		tokens = _parse(buffer, "\n ");
 
-		char **new_envp = copy_envp(environ);
+/**		char **new_envp = copy_envp(environ);
 		char *_path = get_path(new_envp, "PATH");
 		char **path_string = _parse(_path, "=");
 		char **dir = _parse(path_string[1], ":");
@@ -43,11 +43,11 @@ int main(void)
 			{
 				exit(EXIT_SUCCESS);
 			}
-		}	
+		}*/
 			
 		if (fork() == 0)
 		{
-			if (execve(dir[i], tokens, NULL) == -1)
+			if (execve(tokens[i], tokens, NULL) == -1)
 			{
 				perror("./shell");
 				exit(0);
