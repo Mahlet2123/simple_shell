@@ -24,7 +24,7 @@ int main(void)
 *		char **dir = _parse(path_string[1], ":");
 *		char *rgt_dir = check_cmd(dir, tokens)
 */
-		/**'0' if: fork and child process*/	
+		/**'0' if: fork and child process*/
 		if (fork() == 0)
 		{
 			if (execve(tokens[i], tokens, NULL) == -1)

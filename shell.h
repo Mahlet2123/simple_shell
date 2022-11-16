@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char * _read_line(void);
+char *_read_line(void);
 char **_parse(char *str, char *delim);
 
 /**path handlers*/
