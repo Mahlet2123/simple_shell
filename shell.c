@@ -17,13 +17,13 @@ int main(void)
 		if (strncmp(buffer, "\n", 1) == 0)
 			continue;
 		tokens = _parse(buffer, "\n ");
-/**
-*		char **new_envp = copy_envp(environ);
-*		char *_path = get_path(new_envp, "PATH");
-*		char **path_string = _parse(_path, "=");
-*		char **dir = _parse(path_string[1], ":");
-*		char *rgt_dir = check_cmd(dir, tokens)
-*/
+
+		char **new_envp = copy_envp(environ);
+		char *_path = get_path(new_envp, "PATH");
+		char **path_string = _parse(_path, "=");
+		char **dir = _parse(path_string[1], ":");
+		char *rgt_dir = check_cmd(dir, tokens)
+
 		/**'0' if: fork and child process*/
 		if (fork() == 0)
 		{

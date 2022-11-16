@@ -8,17 +8,27 @@
 
 char **copy_envp(char **envp)
 {
-	int i;
+	int i, env_len = 0;
 	char **new_envp = NULL;
+	char **environ;
 
+	while (environ[env_len] != NULL)
+	{
+		env_len++;
+	}
+	new_envp = malloc(sizeof(char *) * env_len);
+	if (new_envp == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; envp[i] != NULL; i++)
 	{
-		new_envp[i] = malloc(sizeof(char *) * _strlen(envp[i] + 1));
+		new_envp[i] = malloc(sizeof(char) * (_strlen(environ[i]) + 1));
 		if (new_envp[i] == NULL)
 		{
-			exit(EXIT_FAILURE);
+			return (NULL);
 		}
-		_strcpy(new_envp[i], envp[i]);
+		_strcpy(new_envp[i], environ[i]);
 	}
 	return (new_envp);
 }
