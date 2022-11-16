@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * copy_envp- copies the enviroment list
+ * @envp: a double pointer to the enviroment list
+ * Return:pointer to the new string array
+ */
+
 char **copy_envp(char **envp)
 {
 	int i;
@@ -17,11 +23,18 @@ char **copy_envp(char **envp)
 	return (new_envp);
 }
 
+/**
+ * get_path- to get the PATH string
+ * @new_envp: newly copied enviroment list
+ * @path: pointer to a string to be searched
+ * Return: a pointer to the PATH string
+ */
+
 char *get_path(char **new_envp, char *path)
 {
 	char *_path = NULL;
 	int i;
-	
+
 	for (i = 0; new_envp != NULL; i++)
 	{
 		if (strncmp(new_envp[i], path, _strlen(path)) == 0)

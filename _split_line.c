@@ -3,6 +3,7 @@
 /**
  * _parse- splittes line of strings
  * @str: string to be parsed
+ * @delim: delimator charactor
  * Return: array of splited strings
  */
 

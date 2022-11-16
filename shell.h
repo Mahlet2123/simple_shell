@@ -15,6 +15,7 @@ char **_parse(char *str, char *delim);
 /**path handlers*/
 char **copy_envp(char **envp);
 char *get_path(char **new_envp, char *path);
+char *check_cmd(char **dir, char *tokens);
 
 /**string modifiers*/
 int _strlen(char *s);
