@@ -3,7 +3,7 @@
 /**
  * check_cmd- checkes if command exists
  *@dir: list of directories
- *@tokens: command to be searched
+ *@token: command to be searched
  * Return: the right directory
  */
 

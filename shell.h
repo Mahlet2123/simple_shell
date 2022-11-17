@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
+extern char **environ;
 
 void prompt(void);
 char *_read_line(void);
