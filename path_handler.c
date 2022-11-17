@@ -5,7 +5,7 @@
  * @envp: a double pointer to the enviroment list
  * Return:pointer to the new string array
  */
-extern char** environ;
+extern char **environ;
 char **copy_envp(void)
 {
 	int i, env_len = 0;
