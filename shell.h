@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 extern char **environ;
-/*
+/**
 * struct builtin - struct
 * @env: environmental list
 * @exit: exit
