@@ -21,22 +21,9 @@ int main(int ac, char **av, char *envp[])
 		if (strncmp(buffer, "\n", 1) == 0)
 			continue;
 		tokens = _parse(buffer, "\n ");
-
-		/**'0' if: fork and child process*/
-		if (fork() == 0)
-		{
-			if (execve(tokens[0], tokens, NULL) == -1)
-			{
-				free(buffer);
-				perror("./shell");
-				exit(0);
-			}
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			wait(NULL);
-		}
+		if (checker(tokens, buffer))
+			continue;
+		execution(tokens[0], tokens);
 		free(buffer);
 		buffer = NULL;
 	}

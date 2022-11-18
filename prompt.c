@@ -7,5 +7,8 @@
 
 void prompt(void)
 {
-	write(STDIN_FILENO, "#cisfun$ ", 9);
+	if (isatty(STDIN_FILENO))
+	{
+		write(STDIN_FILENO, "#cisfun$ ", 9);
+	}
 }

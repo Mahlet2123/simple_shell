@@ -10,6 +10,8 @@
 #include <string.h>
 extern char **environ;
 
+/* functions */
+
 void prompt(void);
 char *_read_line(void);
 char **_parse(char *str, char *delim);
