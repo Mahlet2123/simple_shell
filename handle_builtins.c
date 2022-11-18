@@ -9,8 +9,9 @@
 
 int handle_builtin(char **cmd, char *line)
 {
-	struct builtin builtin = {"env", "exit"};
+struct builtin builtin = {"env", "exit"};
 
+<<<<<<< HEAD
 	if (_strcmp(*cmd, builtin.env) == 0)
 	{
 		print_env();
@@ -22,6 +23,19 @@ int handle_builtin(char **cmd, char *line)
 		return (1);
 	}
 	return (0);
+=======
+if (_strcmp(*cmd, builtin.env) == 0)
+{
+print_env();
+return (1);
+}
+else if (_strcmp(*cmd, builtin.exit) == 0)
+{
+exit_cmd(cmd, line);
+return (1);
+}
+return (0);
+>>>>>>> 11845733d594436a8f24ee9e12c0a825b5df84db
 }
 
 /**
