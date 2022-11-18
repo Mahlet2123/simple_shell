@@ -27,7 +27,7 @@ int handle_builtin(char **cmd, char *line)
 
 /**
  * exit_cmd - handles the exit command
- * @command: tokenized command
+ * @cmd: tokenized command
  * @line: input read from stdin
  * Return: no return
  */
