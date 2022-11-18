@@ -15,7 +15,7 @@ void execution(char *cp, char **cmd)
 	{
 		if (execve(cp, cmd, env) == -1)
 		{
-			free(buffer);
+			free(cp);
 			perror("./shell");
 			exit(0);
 		}
