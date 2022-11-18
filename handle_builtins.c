@@ -4,7 +4,6 @@
  * handle_builtin - handles execution of builtin functions
  * @cmd: tokenized commands
  * @line: input read from stdin
- *
  * Return: 1 if executed, 0 if not
  */
 
@@ -18,16 +17,16 @@ int handle_builtin(char **cmd, char *line)
 		return (1);
 	}
 	else if (_strcmp(*cmd, builtin.exit) == 0)
-			{
-				exit_cmd(cmd, line);
-				return (1);
-			}
+	{
+		exit_cmd(cmd, line);
+		return (1);
+	}
 	return (0);
 }
 
 /**
  * exit_cmd - handles the exit command
- * @command: tokenized command
+ * @cmd: tokenized command
  * @line: input read from stdin
  * Return: no return
  */
